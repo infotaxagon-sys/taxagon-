@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(86, 34, 255, 0.18);
+    color: #120733;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto max-w-container px-6;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-white font-semibold rounded-lg
+           transition-all duration-200 hover:bg-primary-dark hover:-translate-y-0.5
+           hover:shadow-cardHover active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-primary text-primary font-semibold
+           rounded-lg transition-all duration-200 hover:bg-violetTint active:scale-[0.98];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accentPink to-accentViolet bg-clip-text text-transparent;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-violetTint bg-violetTint/60
+           px-4 py-1.5 text-sm font-semibold text-primary;
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-marquee,
+  .animate-floatY,
+  .animate-blob,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
