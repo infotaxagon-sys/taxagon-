@@ -90,11 +90,11 @@ export default function Hero() {
             className="animate-fadeUp mt-9 flex flex-col items-center justify-center gap-3 opacity-0 sm:flex-row"
             style={{ animationDelay: '280ms' }}
           >
-            <button className="btn-primary group w-full px-7 py-3.5 text-base sm:w-auto">
+            <button className="btn-primary group rounded-full px-5 py-2.5 text-sm sm:rounded-lg sm:px-7 sm:py-3.5 sm:text-base">
               Get Started
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 sm:h-5 sm:w-5" />
             </button>
-            <button className="btn-outline w-full px-7 py-3.5 text-base sm:w-auto">
+            <button className="btn-outline rounded-full px-5 py-2.5 text-sm sm:rounded-lg sm:px-7 sm:py-3.5 sm:text-base">
               Book a call
             </button>
           </div>
