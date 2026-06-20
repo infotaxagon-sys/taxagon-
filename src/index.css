@@ -48,6 +48,22 @@
     @apply inline-flex items-center gap-2 rounded-full border border-violetTint bg-violetTint/60
            px-4 py-1.5 text-sm font-semibold text-primary;
   }
+
+  /* Glassmorphism */
+  .glass {
+    @apply border border-white/50 bg-white/55 backdrop-blur-xl;
+    box-shadow: 0 12px 40px rgba(18, 7, 51, 0.1);
+  }
+
+  .glass-soft {
+    @apply border border-white/40 bg-white/40 backdrop-blur-lg;
+    box-shadow: 0 8px 30px rgba(18, 7, 51, 0.07);
+  }
+
+  .glass-dark {
+    @apply border border-white/15 bg-white/[0.06] backdrop-blur-xl;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  }
 }
 
 @layer utilities {

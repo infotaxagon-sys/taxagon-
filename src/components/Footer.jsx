@@ -1,28 +1,35 @@
+import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import { X, Linkedin, Instagram, Star, Sparkles, Mail } from './Icons'
 
 const columns = [
   {
-    title: 'For Individuals',
-    links: ['Tax Filing', 'Tax Planning', 'Financial Planning', 'NRI Services'],
-  },
-  {
-    title: 'For Business',
+    title: 'Services',
     links: [
-      'Tax Filing',
-      'Company Formation',
-      'Book Keeping',
-      'Catchup Book Keeping',
-      'Outsourced Accounting',
+      { label: 'Individual & Family', to: '/services/individual' },
+      { label: 'Business Tax', to: '/services/business' },
+      { label: 'Bookkeeping', to: '/services/bookkeeping' },
+      { label: 'FBAR & FATCA', to: '/services/fbar' },
+      { label: 'NRI & Cross-Border', to: '/services/nri' },
     ],
   },
   {
-    title: 'For Self-Employed',
-    links: ['Company Formation', 'Book Keeping', 'Tax Filing'],
+    title: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Pricing', to: '/pricing' },
+      { label: 'Contact', to: '/contact' },
+      { label: 'Get Started', to: '/get-started' },
+    ],
   },
   {
-    title: 'Company',
-    links: ['About Taxagon', 'Pricing', 'Newsletter', 'Get in touch'],
+    title: 'Resources',
+    links: [
+      { label: 'Tax Tools', to: '/tax-tools' },
+      { label: 'Federal Refund Status', href: 'https://www.irs.gov/wheres-my-refund' },
+      { label: 'IRS Direct Pay', href: 'https://www.irs.gov/payments/direct-pay' },
+      { label: 'State Portals', href: 'https://www.taxadmin.org/fta-members/' },
+    ],
   },
 ]
 
@@ -108,7 +115,7 @@ export default function Footer() {
             <Logo />
             <span className="hidden h-8 w-px bg-ink/15 sm:block" />
             <span className="font-medium text-ink/80">
-              US tax &amp; accounting, done for you
+              Smart tax filing, planning &amp; support · Austin, TX
             </span>
             <div className="inline-flex items-center gap-2 rounded-xl border border-white bg-white px-4 py-2.5">
               <div className="flex text-accentViolet">
@@ -135,19 +142,27 @@ export default function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {columns.map((col) => (
             <div key={col.title} className="rounded-3xl bg-violetTint p-7">
               <h3 className="font-heading text-lg font-bold text-ink">{col.title}</h3>
               <ul className="mt-4 space-y-3">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
-                      className="text-[15px] text-muted2 transition-colors hover:text-primary"
-                    >
-                      {l}
-                    </a>
+                  <li key={l.label}>
+                    {l.to ? (
+                      <Link to={l.to} className="text-[15px] text-muted2 transition-colors hover:text-primary">
+                        {l.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[15px] text-muted2 transition-colors hover:text-primary"
+                      >
+                        {l.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

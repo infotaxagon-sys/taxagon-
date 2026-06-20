@@ -1,31 +1,27 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import TrustBand from './components/TrustBand'
-import AudienceTabs from './components/AudienceTabs'
-import ValueProps from './components/ValueProps'
-import ServicesDiagram from './components/ServicesDiagram'
-import TaxSituation from './components/TaxSituation'
-import Testimonials from './components/Testimonials'
-import Guarantees from './components/Guarantees'
-import CTABand from './components/CTABand'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import About from './pages/About'
+import Pricing from './pages/Pricing'
+import Contact from './pages/Contact'
+import TaxTools from './pages/TaxTools'
+import Services from './pages/Services'
+import ServiceDetail from './pages/ServiceDetail'
 
 export default function App() {
   return (
-    <div id="top" className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <TrustBand />
-        <AudienceTabs />
-        <ValueProps />
-        <ServicesDiagram />
-        <TaxSituation />
-        <Testimonials />
-        <Guarantees />
-        <CTABand />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/get-started" element={<Contact />} />
+        <Route path="/tax-tools" element={<TaxTools />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
+        <Route path="*" element={<Home />} />
+      </Route>
+    </Routes>
   )
 }
