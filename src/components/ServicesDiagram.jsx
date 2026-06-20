@@ -74,16 +74,8 @@ export default function ServicesDiagram() {
 
           {/* center hub */}
           <div className="absolute left-1/2 top-1/2 z-10 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-gradient-to-br from-primary to-accentViolet text-white shadow-glow ring-8 ring-white">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/15">
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17 L16 8" />
-                <path d="M10.5 8 L16 8 L16 13.5" />
-              </svg>
-            </span>
-            <span className="mt-2 font-heading text-lg font-extrabold tracking-tight text-white">
-              Taxagon
-            </span>
-            <span className="text-[11px] font-medium text-white/70">one team</span>
+            <img src="/logo.png" alt="Taxagon" className="w-24 brightness-0 invert" />
+            <span className="mt-2 text-[11px] font-medium text-white/70">one team</span>
           </div>
 
           {/* orbiting nodes */}

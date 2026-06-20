@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger)
 const Hero3D = lazy(() => import('./Hero3D'))
 
 const avatars = [
-  { initials: 'JL', from: 'from-accentPink', to: 'to-primary' },
-  { initials: 'MA', from: 'from-primary', to: 'to-accentViolet' },
-  { initials: 'RK', from: 'from-accentViolet', to: 'to-accentPink' },
-  { initials: 'SD', from: 'from-[#6E5BFF]', to: 'to-[#B14BFF]' },
-  { initials: 'TW', from: 'from-accentPink', to: 'to-accentViolet' },
-  { initials: 'EP', from: 'from-primary', to: 'to-accentPink' },
+  '/testimonials/marcus.jpg',
+  '/testimonials/elena.jpg',
+  '/testimonials/daniel.jpg',
+  '/testimonials/priya.jpg',
+  '/avatars/a5.jpg',
+  '/avatars/a6.jpg',
 ]
 
 export default function Hero() {
@@ -104,13 +104,14 @@ export default function Hero() {
             style={{ animationDelay: '360ms' }}
           >
             <div className="flex -space-x-3">
-              {avatars.map((a) => (
-                <span
-                  key={a.initials}
-                  className={`grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br ${a.from} ${a.to} text-xs font-bold text-white ring-2 ring-white`}
-                >
-                  {a.initials}
-                </span>
+              {avatars.map((src) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  className="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+                />
               ))}
             </div>
             <div className="text-left">
